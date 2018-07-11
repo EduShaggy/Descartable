@@ -10,11 +10,14 @@
 	//	"stock" => 600
 	//);
 
-	$api = file_get_contents("https://silviomessina.com/api/productos.json");
-
+	$api = file_get_contents("https://silviomessina.com/api/?d=productos");
 	$productos = json_decode($api);
 
+	$api = file_get_contents("https://silviomessina.com/api/?d=ultimos");
+	$ultimos = json_decode($api);
+
 	print_r($productos);
+	print_r($ultimos);
 
 ?>
 
@@ -31,7 +34,7 @@
 		
 			//for( CONTADOR; CONDICION; INCREMENTO ){
 			//$i -> variable "incremental" 
-			for( $i = 0; $i < count($productos); $i++ ){ 
+			for( $i = 0; $i < count($productos); $i++ ){
 	
 			/*	if( ($i+1) % 3 == 0 ){  //<-- Si es multiplo de 3... //<-- El signo % me da el resto de la division de $i+1 / 3
 					$class = "grid-top-chain";
